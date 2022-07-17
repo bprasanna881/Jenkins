@@ -1,0 +1,48 @@
+##setup jenkins server
+## amazon ec2 machine
+## installling java
+# yum -y install java-1.8*
+# java -version
+
+## update JAVA_HOME settings
+# find /usr/lib/jvm/java-1.8* | head -n 3         > varibles settings
+
+#  vi ~/..bash_profile
+   
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+PATH=$PATH:$HOME/bin:$JAVA_HOME
+
+export PATH
+Edited setting and save wq
+# java -version           >verification
+
+## https://pkg.jenkins.io/redhat-stable/      > follow website and install steps download jenkins package and provide keys
+# sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+# sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+#sudo yum install jenkins -y
+#service jenkins status
+#service jenkins start
+#service jenkins status    >and check it again service status
+and see service on jenkins like that http://18.234.60.21:8080
+/var/lib/jenkins/secrets/initialAdminPassword
+cat /var/lib/jenkins/secrets/initialAdminPassword  > view the password
+Termnology:
+#jenkins jobs
+#jenkins plugins
+Dashboard> mangaed jenkins>manged plugins> avilable> search like github,maven,jfrog ,sonarqube etc
+access through the server login inton jenkins server
+we can install ubuntu server also follow the sir pdf or google search
+# jenkins credentials 
+  manage jenkins>congiure golbal security/configure system also ssh key auth
+# jenkins logs
+#jenkins agent
+# jenkins data
+   cd /var/lib/jenkins/
+   ls view all
