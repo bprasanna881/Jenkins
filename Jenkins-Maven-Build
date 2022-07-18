@@ -1,0 +1,104 @@
+now login into server ec2
+ # service jenkins start   > start the service
+ # cat /var/lib/jenkins/secrets/initialAdminPassword
+ install git
+ yum install git   > in server ec2
+ Dashboard
+ Global Tool Configuration
+ JDK installations
+   List of JDK installations on this system
+   JDK
+    Name
+   JAVA_HOME
+    JAVA_HOME
+    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+
+     Install automatically
+     ?
+and move to APPL and SAVE
+manged plugins > add git > global tool configure view see git name : github > path to git excutable > /usr/bin/gi
+
+# echo $M2_HOME
+ #cd /opt/
+  #ls
+  # wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+# tar -xvzf apache-maven-3.8.6-bin.tar.gz    > unzip the file
+# ls
+rename 
+[root@ip-172-31-19-41 opt]# ls
+apache-maven-3.8.6  apache-maven-3.8.6-bin.tar.gz  aws  rh
+[root@ip-172-31-19-41 opt]# mv apache-maven-3.8.6 maven
+[root@ip-172-31-19-41 opt]# ls
+apache-maven-3.8.6-bin.tar.gz  aws  maven  rh
+root@ip-172-31-19-41 opt]# cd maven/
+[root@ip-172-31-19-41 maven]# ls
+bin  boot  conf  lib  LICENSE  NOTICE  README.txt
+[root@ip-172-31-19-41 maven]#
+
+#  vi ~/.bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.amzn2.0.2.x86_64
+M2_HOME=/opt/maven
+M2=/opt/maven/bin
+PATH=$PATH:$HOME/bin:$JAVA_HOME:$M2:$M2_HOME
+
+export PATH
+~
+~
+~
+~
+-- INSERT --            
+logout and in
+[root@ip-172-31-19-41 maven]# logout
+[ec2-user@ip-172-31-19-41 ~]$ sudo su -
+ 
+ [root@ip-172-31-19-41 ~]# echo $M2
+/opt/maven/bin
+[root@ip-172-31-19-41 ~]# echo $M2_HOME
+/opt/maven
+[root@ip-172-31-19-41 ~]# mvn --version
+
+add the maven plug into jenkins dashbaord
+add manage plugins> search maven > maven installation,maven intoke > install> restart
+
+Global Tool Configuration
+Maven Configuration
+Default settings provider
+
+Use default maven settings
+?
+Default global settings provider
+
+Use default maven global settings
+?
+JDK
+Git
+Git installations
+Git
+Name
+github
+Path to Git executable
+?
+/usr/bin/git
+
+Install automatically
+?
+Maven
+Maven installations
+List of Maven installations on this system
+Maven
+Name
+M2_HOME
+MAVEN_HOME
+/opt/maven
+
+Install automatically
+
+apply and save
+
