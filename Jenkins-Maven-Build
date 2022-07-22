@@ -101,4 +101,23 @@ MAVEN_HOME
 Install automatically
 
 apply and save
-
+ 
+# now install tomcat on other ec2 server
+create ec2 server
+sudo su -
+# amazon-linux-extras
+# amazon-linux-extras install java-openjdk11
+install tomcat steps
+cd /opt
+#  sudo yum -y install wget
+# wget https://archive.apache.org/dist/tomcat/tomcat-9/v${VER}/bin/apache-tomcat-${VER}.tar.gz
+# ls
+# tar -xvzf apache-tomcat-9.0.63.tar.gz
+# cd apache-tomcat-9.0.63
+# cd bin
+# ls
+# chmod +x startup.sh
+# chmod +x shutdown.sh
+# vi startup.sh
+# ./startup.sh
+now access server :8080 ports
