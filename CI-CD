@@ -1,0 +1,49 @@
+login to tomcat and jenkins server
+now come to the tomcat server
+ sudo su -
+ # hostname tomcat
+# logout
+$ sudo su -
+[root@tomcat ~]# cd /opt
+[root@tomcat opt]# cd apache-tomcat-9.0.63
+[root@tomcat apache-tomcat-9.0.63]# ls
+[root@tomcat apache-tomcat-9.0.63]# cd bin
+[root@tomcat bin]# ls
+[root@tomcat bin]# ./startup.sh
+[root@tomcat bin]# find / -name context.xml
+[root@tomcat bin]# vi /opt/apache-tomcat-9.0.63/webapps/host-manager/META-INF/context.xml
+<!--   <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />  -->   , change the  setting
+# vi /opt/apache-tomcat-9.0.63/webapps/manager/META-INF/context.xml
+<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->
+[root@tomcat bin]# ./startup.sh
+[root@tomcat bin]# ls
+[root@tomcat bin]# ./shutdown.sh
+[root@tomcat bin]# ./startup.sh
+[root@tomcat bin]# cd ..
+[root@tomcat apache-tomcat-9.0.63]# ls
+[root@tomcat conf]# ls
+[root@tomcat conf]# vi tomcat-users.xml
+-->
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-status"/>
+  <user username="admin" password="admin" roles= "manager-gui","manager-script","manager-jmx","manager-status"/>
+  <user username="deployer" password="deployer" roles="manager-script"/>
+  <user username="tomcat" password="s3cret" roles="manager-gui"/>
+</tomcat-users>
+[root@tomcat conf]# cd ..
+[root@tomcat apache-tomcat-9.0.63]# cd bin
+[root@tomcat bin]# ./shutdown.sh
+[root@tomcat bin]# ./startup.sh
+
+now come to the jenkin sever
+we need to add some plugins
+go manged settings , add plugins search avilable deploy container > it shows add install without restart
+and restart the section
+add some credtinal aslo user name depolyer etc
+add new item maven project
+add code itascode from github repo
+add master branch
